@@ -1,1 +1,22 @@
+lib
+fulmin-all.js
+.nyc_output
+coverage
+
+# arquivos compilados do python
+*.pyc
+
+# módulos npm instalados
 node_modules
+
+# arquivos de configuração de visualização de pasta
+.DS_Store
+Desktop.ini
+
+# arquivos de cache de thumbnail
+._*
+Thumbs.db
+
+# arquivos que podem aparecer em discos externos
+.Spotlight-V100
+.Trashes
