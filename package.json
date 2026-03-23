@@ -1,0 +1,12 @@
+{
+  "name": "fulmin",
+  "version": "1.0.0",
+  "description": "expressões regulares estendidas",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.29.2"
+  }
+}
