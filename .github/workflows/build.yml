@@ -1,0 +1,17 @@
+name: node.js ci
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: usar node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: 20
+    - run: npm install
+    - run: npm test
