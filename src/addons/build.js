@@ -49,12 +49,12 @@ export default (Fulmin) => {
      * @private
      * 
      * @param {String|RegExp} value valor a ser convertido
-     * @param {Boolean} [addFlagX] flag `x` aplicada
+     * @param {Boolean} [addFlagF] flag `f` aplicada
      * 
      * @returns {RegExp} objeto fulmin com a sintaxe aplicada
      */
-    function asFulmin(value, addFlagX) {
-        const flags = addFlagX ? 'x' : '';
+    function asFulmin(value, addFlagF) {
+        const flags = addFlagF ? 'x' : '';
 
         return Fulmin.isRegExp(value) ?
             (value[REGEX_DATA] && value[REGEX_DATA].captureNames ?
