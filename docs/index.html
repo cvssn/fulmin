@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>
+            fulmin
+        </title>
+
+        <link rel="stylesheet" href="./assets/index.css" type="text/css">
+    </head>
+    
+    <body>
+        <div id="header">
+            <h1>
+                <a href="./index.html">
+                    <span id="logoF">
+                        f
+                    </span>
+
+                    ulmin
+                </a>
+            </h1>
+
+            <h1 class="subtitle">
+                uma biblioteca de expressões regulares javascript única em seu gênero
+            </h1>
+        </div>
+
+        <div id="body">
+            <div id="navBar">
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="./index.html" class="selected">
+                                home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./api/index.html">
+                                api
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./syntax/index.html">
+                                nova sintaxe
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./flags/index.html">
+                                novas flags
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./unicode/index.html">
+                                unicode
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="main">
+                <div id="tocContainer">
+                    <div id="toc">
+                        <ul style="margin-bottom: 5px;">
+                            <li>
+                                <a href="#what">
+                                    o que é?
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#features">
+                                    features
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#performance">
+                                    performance
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#installation">
+                                    instalação e uso
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#v5-breaking">
+                                    breaking change v5
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 id="what">
+                    o que é?
+                </h2>
+
+                <p>
+                    fulmin fornece expressões regulares JavaScript aprimoradas (e extensíveis). Você obtém sintaxe e opções modernas que vão além do que os navegadores suportam nativamente. fulmin também funciona como um conjunto de utilitários para expressões regulares, com ferramentas que facilitam a busca e a análise sintática, além de eliminar as inconsistências entre navegadores e outros problemas comuns em expressões regulares.
+                </p>
+
+                <p>
+                    fulmin suporta toda a sintaxe nativa de expressões regulares es6. ele suporta <mark>navegadores es5+</mark> (incluindo o internet explorer 9+), e você pode usá-lo com o <mark>node.js</mark> ou como um módulo <mark>requirejs</mark>. ao longo dos anos, muitos dos recursos do fulmin foram adotados por novos padrões do javascript (captura de nomes, propriedades/scripts/categorias unicode, flag <code>s</code>, correspondência persistente, etc.), portanto, usar o fulmin pode ser uma maneira de estender esses recursos para navegadores mais antigos. lançado sob a <a href="https://mit-license.org/">licença mit</a>.
+                </p>
+
+                <p>
+                    <strong>
+                        fulmin permite que você escreva expressões regulares como esta:
+                    </strong>
+                </p>
+
+<pre class="sh_javascript">// utilizando captura nomeada e flag x (espaço livre e comentários de linha)
+const date = fulmin(`(?&lt;ano> [0-9]{4} ) -? # ano
+                     (?&lt;mês> [0-9]{2} ) -? # mês
+                     (?&lt;dia> [0-9]{2} )    # dia`, 'x');
+</pre>
+
+                <p>
+                    <strong>
+                        e fazer coisas legais como isto:
+                    </strong>
+                </p>
+
+<pre class="sh_javascript">// utilizando backreferences nomeadas...
+fulmin.exec('2021-02-23', date).groups.year;
+// -> '2021'
+fulmin.replace('2021-02-23', date, '$&lt;mês&gt;/$&lt;dia&gt;/$&lt;ano&gt;');
+// -> '02/23/2021'
+
+// encontra correspondências dentro de correspondências, encaminhando e retornando referências anteriores específicas
+const html = `&lt;a href="https://fulmin.com/api/">fulmin&lt;/a>
+              &lt;a href="https://www.google.com/">google&lt;/a>`;
+
+fulmin.matchChain(html, [
+    {regex: /&lt;a href="([^"]+)">/i, backref: 1},
+    {regex: fulmin('(?i)^https?://(?&lt;domain>[^/?#]+)'), backref: 'domain'}
+]);
+// -> ['fulmin.com', 'www.google.com']
+</pre>
+
+                <p>
+                    <strong>
+                        veja mais nos <a href="https://github.com/cvssn/fulmin/blob/master/README.md#usage-examples">exemplos de uso no github &#x21E8;</a>.
+                    </strong>
+                </p>
+
+                <h2 id="features">
+                    features
+                </h2>
+
+                <ul>
+                    <li>
+                        adiciona
+                    </li>
+
+                    <li>
+                        adiciona
+                    </li>
+
+                    <li>
+                        fornece
+                    </li>
+
+                    <li>
+                        suporta
+                    </li>
+                </ul>
+
+                <h2 id="performance">
+                    performance
+                </h2>
+
+                <p>
+                    fulmin compila para objetos <code>regexp</code> nativos.
+                </p>
+
+                <h2 id="installation">
+                    instalação e uso
+                </h2>
+
+                <p>
+                    em navegadores (incluindo o fulmin com todos os seus complementos):
+                </p>
+
+<pre class="sh_html">&lt;script src="https://unpkg.com/fulmin/fulmin-all.js">&lt;/script>
+</pre>
+
+                <p>
+                    utilizando <a href="https://www.npmjs.com/">npm</a>:
+                </p>
+
+<pre class="sh_html">npm install fulmin
+</pre>
+
+                <p>
+                    em <a href="https://nodejs.org/en/">node.js</a>:
+                </p>
+
+<pre class="sh_javascript">const fulmin = require('fulmin');
+</pre>
+
+                <h2 id="v5-breaking">
+                    breaking change de captura nomeada no fulmin 5
+                </h2>
+
+                <p>
+                    o fulmin 5 introduziu uma alteração que quebra a compatibilidade, na qual as propriedades de retroreferência nomeadas agora aparecem no objeto <code>groups</code> do resultado (seguindo o es2018), em vez de diretamente no resultado. para restaurar o comportamento antigo e evitar a atualização de código antigo, execute a seguinte linha após importar o fulmin:
+                </p>
+
+<pre class="sh_javascript">fulmin.uninstall('namespacing');
+</pre>
+
+                <p>
+                    o fulmin 4.1.0 e versões posteriores permitem introduzir o novo comportamento sem atualizar para o fulmin 5 executando <code>Fulmin.install('namespacing')</code>.
+                </p>
+
+                <p>
+                    a seguir, apresentamos as alterações mais comuns necessárias para atualizar o código de acordo com o novo comportamento:
+                </p>
+
+<pre class="sh_javascript">// altere isto
+const name = fulmin.exec(str, regexwithnamedcapture).name;
+
+// para isto
+const name = fulmin.exec(str, regexwithnamedcapture).groups.name;
+</pre>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>
+                &copy; <a href="https://cvssn.github.io/">cavassani</a> :: <a href="https://github.com/cvssn/fulmin">github</a>
+            </p>
+        </div>
+    </body>
+</html>
