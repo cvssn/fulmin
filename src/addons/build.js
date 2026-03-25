@@ -102,7 +102,7 @@ export default (Fulmin) => {
      * interpolada são reescritas para funcionar dentro do
      * padrão geral
      * 
-     * @memberOf fulmin
+     * @memberof Fulmin
      * 
      * @param {String} [flags] qualquer combinação das flags fulmin
      * 
@@ -143,7 +143,7 @@ export default (Fulmin) => {
      * os parâmetros nativos usados ​​pelos subpadrões fornecidos
      * são ignorados em favor do argumento `flags`
      * 
-     * @memberOf fulmin
+     * @memberof Fulmin
      * 
      * @param {String} pattern padrão fulmin utilizando `{{name}}` para subpadrões embutidos
      * @param {Object} subs objeto de observação para subpadrões nomeados
