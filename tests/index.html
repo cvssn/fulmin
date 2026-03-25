@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>
+            specs fulmin
+        </title>
+
+        <!-- jasmine -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jasmine/jasmine@6.1.0/lib/jasmine-core/jasmine.css">
+
+        <script src="https://cdn.jsdelivr.net/gh/jasmine/jasmine@6.1.0/lib/jasmine-core/jasmine.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jasmine/jasmine@6.1.0/lib/jasmine-core/jasmine-html.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/jasmine/jasmine@6.1.0/lib/jasmine-core/boot0.js"></script>
+
+        <script>
+            jasmine.getEnv().configure({
+                random: false
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/gh/jasmine/jasmine@6.1.0/lib/jasmine-core/boot1.js"></script>
+    
+        <!-- fulmin -->
+        <script src="../fulmin-all.js"></script>
+
+        <!-- helpers -->
+        <script src="helpers/h.js"></script>
+        <script src="helpers/h-matchers.js"></script>
+        <script src="helpers/h-unicode.js"></script>
+
+        <!-- specs -->
+        <script src="spec/s-fulmin.js"></script>
+        <script src="spec/s-fulmin-methods.js"></script>
+        <script src="spec/s-addons-build.js"></script>
+        <script src="spec/s-addons-matchrecursive.js"></script>
+        <script src="spec/s-addons-unicode.js"></script>
+
+        <style>
+            #header {
+                font-family: Monaco, "Lucida Console", monospace;
+                font-size: 11px;
+
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <p id="header">
+            nota: diversas extensões de sintaxe são adicionadas pelas especificações desta página, portanto, este não é o local ideal para testar o fulmin por meio do console.
+        </p>
+    </body>
+</html>
